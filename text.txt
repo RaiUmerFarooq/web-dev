@@ -1,0 +1,54 @@
+    animation: slideAnimation 8s infinite;
+
+
+function changeOpacity(elementId, targetOpacity, increment, delay) {
+    const element = document.getElementById(elementId);
+    let currentOpacity = parseFloat(window.getComputedStyle(element).opacity);
+
+    const changeOpacityInterval = setInterval(() => {
+        if (currentOpacity > targetOpacity) {
+            currentOpacity -= increment;
+        } else if (currentOpacity < targetOpacity) {
+            currentOpacity += increment;
+        } else {
+            clearInterval(changeOpacityInterval);
+        }
+        element.style.opacity = currentOpacity;
+    }, delay);
+}
+
+
+function che(){
+  let v4=document.getElementById("pa1");
+  let em = window.getComputedStyle(v4).getPropertyValue("opacity");
+
+  if(em==1){
+    
+    v4.style.opacity=`1`;
+}
+}.pi2{
+    grid-column: 4 / span 1;
+}
+
+.pi1{
+    grid-column: 1 / span 3;
+}
+.pi4{
+    grid-column: 2 / span 3;
+}
+
+.pointer{
+    top: 0px;
+    left: 0px;
+border: 2px solid white;
+background-color: white;
+height: 37px;
+width: 37px;
+    position: absolute;
+    border-radius: 50%;
+}
+
+onmouseout="show1()" onmouseover="show()"
+
+grid-column: span 3;
+grid-column: span 3;
