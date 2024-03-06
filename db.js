@@ -16,8 +16,13 @@ async function run() {
     // Connect the client to the server	(optional starting in v4.7)
     await client.connect();
     // Send a ping to confirm a successful connection
-    await client.db("admin").command({ ping: 1 });
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+    let db = client.db("sample_airbnb");
+    let listrev=db.collection("listingsAndReviews");
+    let result=await listrev.findOne({name: "Ocean View Waikiki Marina w/prkg"});
+    // for await (const doc of result){
+      console.log(result);
+    // }
+    
   } finally {
     // Ensures that the client will close when you finish/error
     await client.close();
