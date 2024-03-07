@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <form class="login" method="get" action="/login">
+        <div class="inner">
+            <label style="font-weight: bold;" for="ein"> <%= em %></label>
+            <input name="ein" class="ein" id="ein" type="email" autofocus>
+            <label style="font-weight: bold;" for="pin">password</label>
+            <input name="pin" class="pin" id="pin" type="password">
+
+        </div>
+        <button type="submit" class="sub">Submit</button>
+    </form>
+</body>
+</html>
