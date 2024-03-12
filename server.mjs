@@ -12,10 +12,10 @@ app.get('/',(req,res) => {
 })
 
 app.get('/listingandreviews', async (req,res) => {
-  let  collection = db.collection('planets');
+  let  collection = db.collection('user');
 let result = await collection
 .find({})
-.limit(3)
+// .limit(3)
 .toArray();
 res.send(result).status(200);
 })

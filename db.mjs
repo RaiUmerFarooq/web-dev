@@ -10,6 +10,6 @@ console.log("connected");
     console.log("nothig");
 }
 
-let db = conn.db("sample_guides");
+let db = conn.db("admin");
 
 export default db;
