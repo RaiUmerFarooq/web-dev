@@ -4,11 +4,14 @@ import cors from "cors";
 import db from "./db.mjs";
 const app = express();
 const port=config.get('port');
-
 app.use(cors());
 
+app.set('view engine','ejs');
 app.get('/',(req,res) => {
     res.json('{"message": "Response Send"}')
+})
+app.get('/search',(req,res) => {
+  res.render('index.ejs');
 })
 
 app.get('/listingandreviews', async (req,res) => {
