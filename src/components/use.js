@@ -3,7 +3,7 @@ import { useState } from "react";
 // import ReactDOM from "react-dom/client";
 
 
-export default function chal(){
+export default function Chal(){
 // const [history,setcount] = useState;
 // function change(m){
 //     setcount(m);
