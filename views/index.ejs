@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="./style.css" type="text/css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        .container-fluid{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    justify-content: center;
+}
+
+
+.btn {
+    margin-top:10px ;
+  appearance: button;
+  background-color: #1899D6;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: din-round,sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .8px;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  overflow: visible;
+  padding: 13px 16px;
+  text-align: center;
+  text-transform: uppercase;
+  touch-action: manipulation;
+  transform: translateZ(0);
+  transition: filter .2s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.btn:after {
+  background-clip: padding-box;
+  background-color: #1CB0F6;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  bottom: -4px;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.btn:main,
+.btn:focus {
+  user-select: auto;
+}
+
+.btn:hover:not(:disabled) {
+  filter: brightness(1.1);
+  -webkit-filter: brightness(1.1);
+}
+
+.btn:disabled {
+  cursor: auto;
+}
+
+.btn:active {
+  border-width: 4px 0 0;
+  background: none;
+}
+    </style>
+
+</head>
+<body style="display: flex;flex-direction: column;">
+    <!-- <label for="inp">search</label>
+    <input id="inp" type="text">
+    <button onclick="searchgoogle()">Submit</button>
+    <script src="../search1.mjs"></script> -->
+    <div class="container-fluid" style="    display: flex;
+    flex-direction: column;
+    /* width: 30%; */
+    justify-content: center;
+    align-items: center;
+    flex: 1;">
+        <h1>Apply as Employee</h1>
+        <form method="get" action="/Mongo1">
+            <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+
+                <input name="firstName" id="firstName" type="text" placeholder="Your First Name">
+                <input name="Email" style="margin-left: 10px;" type="text" id="email" placeholder="Your email">
+                
+            </div>
+            <div style="display: flex; justify-content: space-between;  margin-top: 10px;">
+
+                <input name="Name" id="Name" type="text" placeholder="Your Name">
+                <input name="number" style="margin-left: 10px;" type="number" id="phno" placeholder="Your phone#">
+                
+            </div>
+            <div style="display: flex; justify-content: space-between;  margin-top: 10px;">
+
+                <input name="pass"  id="pass" type="password" placeholder="Your Password">
+                <input name="ques" style="margin-left: 10px;" type="text" id="ques" placeholder="Enter ur qury">
+                
+            </div>
+            <div style="display: flex; justify-content: space-between;  margin-top: 10px;">
+
+                <input name="conPass" id="conPass" type="password" placeholder="Confirm Password">
+                <input name="ans" style="margin-left: 10px;" type="text" id="ans" placeholder="Your Answer">
+                
+            </div>
+<button type="submit" style="margin-top: 20px;" class="btn">submit</button>
+        </form>
+    </div>
+</body>
+</html>
