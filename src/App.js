@@ -29,10 +29,11 @@ function App() {
 <div className="main">
 
 <div className="main-content">
-                <img class="imgclass" src="FASTNUimage.jpg" alt="University" />
+                <img className="imgclass" src="FASTNUimage.jpg" alt="University" />
              
-            </div>
             <Signup />
+            </div>
+            <button className="button-56">click here</button>
 </div>
     </>
 
