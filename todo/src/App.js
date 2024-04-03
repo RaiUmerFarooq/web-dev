@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import TodoItem from "./components/TodoItem";
 
-const API_BASE = 'http://localhost:3000/todo';
+const API_BASE = 'http://localhost:3001/to-do-app';
 
 function App() {
   
