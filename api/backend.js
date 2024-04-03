@@ -1,34 +1,35 @@
 const express = require('express');
+const app = express();
 const cors = require('cors');
 const mongoose = require('mongoose');
-require('dotenv').config();
 const Todo = require('./modules/Todo');
-//Execute express 
-const app = express();
+const { todo } = require('node:test');
+require('dotenv').config()
 
-//Middlewares
+const port = 3001;
 app.use(express.json());
 app.use(cors());
 
-const port = 4001;
+const connectionString = process.env.MONGO_URI
 
-const connectionString = process.env.MONGO_URI;
-mongoose.connect(connectionString)
-    .then(() => console.log('Connected to the database…'))
-    .catch((err) => console.error('Connection error:', err));
+mongoose.connect(connectionString).then(()=> console.log('Connect to the DB..')).catch((err)=>console.log(err))
 
 
-app.get('/todo', async (req, res) => {
+//routes 
+app.get('/to-do-app', async(req,res)=> {
     const todos = await Todo.find();
-    res.json(todos);
-});
-app.post('/todo/new', async (req, res) => {
-    const newTask = await Todo.create(req.body);
-    res.status(201).json({ newTask })
+    res.json(todos)
 })
 
-app.delete('/todo/delete/:id', async(req,res)=>{
+app.post('/to-do-app/new', async(req,res)=> {
+    const task = await Todo.create(req.body)
+    res.status(201).json({task})
+})
+
+app.delete('/to-do-app/delete/:id', async(req,res)=>{
     const result = await Todo.findByIdAndDelete(req.params.id)
     res.json(result)
 })
-app.listen(port, () => console.log(`Server is running on port http://localhost:${port}`)); 
+
+
+app.listen(port, console.log(`server is running on port http://localhost:${port}`))

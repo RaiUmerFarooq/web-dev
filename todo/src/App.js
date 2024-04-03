@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import TodoItem from "./components/TodoItem";
 
-const API_BASE = 'http://localhost:4001/todo';
+const API_BASE = 'http://localhost:3000/todo';
 
 function App() {
   
@@ -39,9 +39,7 @@ function App() {
     setInput('')
    }
  
-  <button onClick={()=>addItem()}>
-  <span>ADD</span>
-  </button>
+ 
 
   return (
  // The input field's value is now taken from the input state. 
@@ -56,13 +54,17 @@ function App() {
 
       <div className="form">
         <input type='text' value={input} onChange={handleChange}></input>
-        <button>
-          <span>ADD</span>
-        </button>
+        <button onClick={()=>addItem()}>
+  <span>ADD</span>
+  </button>
       </div>
 
       <div className="todolist">  
-        <TodoItem/>  
+      {items.map((item)=> {
+        const {_id, name, completed} = item
+        return  <TodoItem name={name} id={_id} completed={completed} setItems={setItems}/>   
+      })}
+     
       </div>
     </div>
   );
