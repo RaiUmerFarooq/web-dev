@@ -20,16 +20,23 @@ app.get('/to-do-app', async(req,res)=> {
     const todos = await Todo.find();
     res.json(todos)
 })
-
+app.get('/to-do-app/delete/:id', async (req, res) => {
+    try {
+        const info = await Todo.findOne({ _id: req.body._id });
+        if (info == null) {
+            return res.status(404).json({ message: "Info not found" });
+        }
+        res.status(201).json(info);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+});
 app.post('/to-do-app/new', async(req,res)=> {
     const task = await Todo.create(req.body)
     res.status(201).json({task})
 })
 
-app.delete('/to-do-app/delete/:id', async(req,res)=>{
-    const result = await Todo.findByIdAndDelete(req.params.id)
-    res.json(result)
-})
+
 
 app.get('/update', async(req,res)=>{
 const result=await Todo.updateOne(res.body)
