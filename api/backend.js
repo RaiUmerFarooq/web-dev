@@ -21,6 +21,11 @@ app.get('/to-do-app', async(req,res)=> {
     res.json(todos)
 })
 
+// const docs = await Character.find({ rank: 'Lieutenant' });
+
+// // MongoDB may return the docs in any order unless you explicitly sort
+// docs.map(doc => doc.name).sort(); // ['Geordi La Forge', 'Worf']
+
 app.post('/to-do-app/new', async(req,res)=> {
     const task = await Todo.create(req.body)
     res.status(201).json({task})
