@@ -1,0 +1,31 @@
+
+
+
+//sb sa pahla folder bana ka use open krna ha visualstudio ma
+//us ka bad ap na terminal open kr ka micha wali 3 coomad run krni ha
+git init 
+git remote add origin https://github.com/RaiUmerFarooq/web-dev.git
+git pull origin Mern-1
+
+npx creat-react-app (name) #lowercase
+cd (name)
+npm start 
+//nab apna folder ma jao jo ka banaya ha project kaliya uder ja ka jo todo 
+//wala folder ha us ma sa scr folder copy krna ha phir  ap na jo todo-1 ka folder
+// banaya ha jo ka project banya ha us ka scr folder delete kr ka  us ki jaga paster kr dana ha
+// us ka bad todo folder delete kr dana ha
+//phir ap na visual studio ma jana ha api i folder ka terminal open krna ha uder api ka terminal pa ja ka uder command( npm install mongoose)
+//phir command (node backend.js )run krna ha
+//api ka ander .evn file ma ja ka jo sir na mongo ka koi link dai ha usa uder uul ma put krna ha 
+
+
+
+
+
+
+
+
+
+git pull origin MJS
+
+git pull origin React 
