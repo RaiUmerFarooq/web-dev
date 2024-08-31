@@ -39,7 +39,7 @@ router.post("/create-shop", catchAsyncErrors(async (req, res, next) => {
 
     const activationToken = createActivationToken(seller);
 
-    const activationUrl = `http://localhost:3000/seller/activation/${activationToken}`;
+    const activationUrl = `http://43.205.193.91:3000/seller/activation/${activationToken}`;
 
     try {
       await sendMail({
@@ -169,8 +169,7 @@ router.get(
       res.cookie("seller_token", null, {
         expires: new Date(Date.now()),
         httpOnly: true,
-        sameSite: "none",
-        secure: true,
+        sameSite: "Lax",
       });
       res.status(201).json({
         success: true,
