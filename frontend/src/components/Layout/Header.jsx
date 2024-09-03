@@ -30,8 +30,10 @@ const Header = ({ activeHeading }) => {
   const [openCart, setOpenCart] = useState(false);
   const [openWishlist, setOpenWishlist] = useState(false);
   const [open, setOpen] = useState(false);
+const {dotenv} = "dotenv";
 
   const handleSearchChange = (e) => {
+console.log(process.env.RAI);
     const term = e.target.value;
     setSearchTerm(term);
 
@@ -58,8 +60,10 @@ const Header = ({ activeHeading }) => {
           <div>
             <Link to="/">
               <img
-                src="https://shopo.quomodothemes.website/assets/images/logo.svg"
+               // src="https://shopo.quomodothemes.website/assets/images/logo.svg"
+              src="https://res.cloudinary.com/ddvifwt3v/image/upload/v1725316984/logos/v4vrdx11cc9pp4gf2jym.png"
                 alt=""
+                  className="max-w-[100px] w-full h-auto object-contain"
               />
             </Link>
           </div>
@@ -217,12 +221,14 @@ const Header = ({ activeHeading }) => {
           <div>
             <Link to="/">
               <img
-                src="https://shopo.quomodothemes.website/assets/images/logo.svg"
+         //  src="https://shopo.quomodothemes.website/assets/images/logo.svg"
+          src="https://res.cloudinary.com/ddvifwt3v/image/upload/v1725316984/logos/v4vrdx11cc9pp4gf2jym.png"
                 alt=""
-                className="mt-3 cursor-pointer"
+ className="max-w-[120px] w-full max-h-[65px] object-contain  cursor-pointer"
               />
             </Link>
           </div>
+
           <div>
             <div
               className="relative mr-[20px]"
