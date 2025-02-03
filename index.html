@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day Card</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #fff0f5;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            position: relative;
+            width: 300px;
+            height: 400px;
+        }
+
+        #envelope {
+            position: absolute;
+            width: 84%;
+            height: 100%;
+            background-color: #ff4d4d;
+            clip-path: polygon(0% 10%, 50% 50%, 100% 10%, 100% 90%, 0% 90%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            z-index: 10;
+        }
+
+        #envelope:hover {
+            transform: scale(1.05);
+        }
+
+        #card {
+            position: absolute;
+            width: 84%;
+            height: 100%;
+            background-color: white;
+            border: 2px solid #ff69b4;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+            transform: translateY(20%);
+            transition: transform 0.5s ease, opacity 1s ease; /* Updated transition */
+            cursor: pointer;
+            bottom: 118px;
+            opacity: 0;
+        }
+
+        #card.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .heart-icon {
+            color: #ff4d4d;
+            width: 64px;
+            height: 64px;
+        }
+
+        .envelope-heart {
+            color: white;
+            width: 48px;
+            height: 48px;
+            margin-bottom: 10px;
+        }
+        .flowers {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .flower {
+            position: absolute;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .petals {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            transform-style: preserve-3d;
+            animation: rotate 20s linear infinite;
+        }
+
+        .petal {
+            position: absolute;
+            width: 20px;
+            height: 40px;
+            background: linear-gradient(45deg, #ff69b4, #ff1493);
+            border-radius: 50%;
+            transform-origin: bottom center;
+        }
+
+        .petal:nth-child(1) { transform: rotate(0deg) translateY(-20px); }
+        .petal:nth-child(2) { transform: rotate(30deg) translateY(-20px); }
+        .petal:nth-child(3) { transform: rotate(60deg) translateY(-20px); }
+        .petal:nth-child(4) { transform: rotate(90deg) translateY(-20px); }
+        .petal:nth-child(5) { transform: rotate(120deg) translateY(-20px); }
+        .petal:nth-child(6) { transform: rotate(150deg) translateY(-20px); }
+        .petal:nth-child(7) { transform: rotate(180deg) translateY(-20px); }
+        .petal:nth-child(8) { transform: rotate(210deg) translateY(-20px); }
+        .petal:nth-child(9) { transform: rotate(240deg) translateY(-20px); }
+        .petal:nth-child(10) { transform: rotate(270deg) translateY(-20px); }
+        .petal:nth-child(11) { transform: rotate(300deg) translateY(-20px); }
+        .petal:nth-child(12) { transform: rotate(330deg) translateY(-20px); }
+
+        .center {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: #ffd700;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+        }
+        .hearts span {
+            position: absolute;
+            color: #ff4081;
+            font-size: 1.5em;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-100vh) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(360deg); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .envelope {
+                transform: scale(0.8);
+            }
+            .envelope.open .card {
+                top: -140px;
+            }
+            .card {
+                font-size: 14px;
+                padding: 15px;
+                height: 140%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts" id="hearts"></div>
+    <div class="flowers" id="flowers"></div>
+    <div class="container">
+        <div id="envelope">
+            <svg class="envelope-heart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 5.69 1.33 8.5 3.65 10.76l.77.76L12 19l7.58-7.48.77-.76c2.32-2.26 2.19-5.07.07-6.86Z"/>
+            </svg>
+            <p style="color: white; font-weight: bold;">Click to Open</p>
+        </div>
+        <div id="card">
+            <h2 style="color: #ff1493; margin-bottom: 15px;">Happy Valentine's Day!</h2>
+            <p style="color: #333; margin-bottom: 20px;">
+                You mean the world to me. Your love is the most precious gift I could ever receive.
+            </p>
+            <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 5.69 1.33 8.5 3.65 10.76l.77.76L12 19l7.58-7.48.77-.76c2.32-2.26 2.19-5.07.07-6.86Z"/>
+            </svg>
+            <p style="color: #ff69b4; font-style: italic; margin-top: 15px;">Will You be My Valentine?</p>
+        </div>
+    </div>
+
+    <script>
+         function createFlowers() {
+            const flowersContainer = document.getElementById('flowers');
+            const flowerCount = 15;
+
+            for (let i = 0; i < flowerCount; i++) {
+                const flower = document.createElement('div');
+                flower.className = 'flower';
+                
+                flower.style.left = `${Math.random() * 100}%`;
+                flower.style.top = `${Math.random() * 100}%`;
+                
+                const size = 0.5 + Math.random() * 1.5;
+                flower.style.transform = `scale(${size})`;
+
+                const petals = document.createElement('div');
+                petals.className = 'petals';
+                
+                for (let j = 0; j < 12; j++) {
+                    const petal = document.createElement('div');
+                    petal.className = 'petal';
+                    petals.appendChild(petal);
+                }
+
+                // const center = document.createElement('div');
+                // center.className = 'center';
+
+                flower.appendChild(petals);
+                //flower.appendChild(center);
+                flowersContainer.appendChild(flower);
+
+                if (Math.random() > 0.5) {
+                    petals.querySelectorAll('.petal').forEach(petal => {
+                        petal.style.background = 'linear-gradient(45deg, #ff1493, #ff69b4)';
+                    });
+                }
+            }
+        }
+
+        function createHearts() {
+            const heartsContainer = document.getElementById('hearts');
+            const heartCount = 50;
+
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('span');
+                heart.innerHTML = '❤️';
+                heart.style.left = `${Math.random() * 100}%`;
+                heart.style.animationDuration = `${5 + Math.random() * 10}s`;
+                heart.style.animationDelay = `-${Math.random() * 10}s`;
+                heartsContainer.appendChild(heart);
+            }
+        }
+
+        // Touch support for mobile
+        document.addEventListener('touchstart', function(e) {
+            const envelope = document.querySelector('.envelope');
+            if (e.target === envelope && !e.targetTouches.length > 1) {
+                envelope.classList.toggle('open');
+            }
+        }, { passive: true });
+
+        // Initialize
+        createFlowers();
+        createHearts();
+        const envelope = document.getElementById('envelope');
+        const card = document.getElementById('card');
+
+        envelope.addEventListener('click', () => {
+            envelope.style.display = 'none';
+            card.classList.add('show');
+        });
+
+        card.addEventListener('click', () => {
+            card.classList.remove('show');
+            envelope.style.display = 'flex';
+        });
+    </script>
+</body>
+</html>
